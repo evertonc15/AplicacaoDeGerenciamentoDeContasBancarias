@@ -1,4 +1,4 @@
-package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model;
+package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Utils;
 
 public abstract class Pessoas {
     public String nome;

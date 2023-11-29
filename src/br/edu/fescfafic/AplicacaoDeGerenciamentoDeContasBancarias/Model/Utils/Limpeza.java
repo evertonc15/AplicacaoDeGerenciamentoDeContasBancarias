@@ -1,4 +1,4 @@
-package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model;
+package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Utils;
 
 public class Limpeza extends Funcionarios{
     public Limpeza(String nome, String sobrenome, String cpf, int id, String numeroDeAcesso) {
