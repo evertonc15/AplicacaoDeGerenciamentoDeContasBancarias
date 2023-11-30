@@ -9,23 +9,29 @@ public class ContaPoupancaDAO implements IDao <ContaPoupanca> {
     ArrayList<ContaPoupanca> contaPoupanca = new ArrayList<>();
     @Override
     public boolean createCRUD(ContaPoupanca object) {
-        return contaPoupanca.add(object);
+        return this.contaPoupanca.add(object);
     }
     @Override
-    public ArrayList<ContaPoupanca> listarTudo() {
-        return contaPoupanca;
+    public ArrayList<ContaPoupanca> listarTudoCRUD() {
+        System.out.println(contaPoupanca);
+        return this.contaPoupanca;
     }
     @Override
     public ContaPoupanca buscar(int id) {
-        return contaPoupanca.get(id);
+        for(ContaPoupanca busca : this.contaPoupanca){
+            if(busca.getIdDaConta() != 0){
+                return busca;
+            }
+        }
+        return null;
     }
     @Override
-    public boolean removeCRUD(ContaPoupanca object) {
-        return contaPoupanca.remove(object);
+    public boolean deleteCRUD(ContaPoupanca object) {
+        return this.contaPoupanca.remove(object);
     }
 
     @Override
-    public void updateCRUD(int id, ContaPoupanca object) {
-        contaPoupanca.add(id, object);
+    public void updateCRUD(int index, ContaPoupanca object) {
+        this.contaPoupanca.set(index, object);
     }
 }
