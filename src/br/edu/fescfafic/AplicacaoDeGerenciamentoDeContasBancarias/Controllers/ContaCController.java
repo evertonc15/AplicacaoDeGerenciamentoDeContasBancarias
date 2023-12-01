@@ -1,6 +1,7 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers;
 
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.DAO.ContaCorrenteDAO;
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Exception.ContaNaoPodeSerCriadaException;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IController;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IDao;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Contas.ContaCorrente;
@@ -15,7 +16,18 @@ public class ContaCController implements IController<ContaCorrente> {
 
     @Override
     public boolean createCRUD(ContaCorrente object) {
-        return this.contaCorrente.createCRUD(object);
+        boolean verificar = false;
+        try{
+            if(object.getIdDaConta() > 100){
+                verificar = true;
+                System.out.println("Conta Criada com sucesso.");
+                return this.contaCorrente.createCRUD(object);
+            }
+            throw new ContaNaoPodeSerCriadaException();
+        }catch (ContaNaoPodeSerCriadaException e){
+            System.out.println(e);
+        }
+        return verificar;
     }
     @Override
     public ArrayList<ContaCorrente> listarTudoCRUD() {
