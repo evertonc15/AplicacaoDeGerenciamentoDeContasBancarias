@@ -1,6 +1,7 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers;
 
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.DAO.ContaPoupancaDAO;
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Exception.ContaPoupancaException;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IController;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IDao;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.ContaPoupanca;
@@ -14,7 +15,12 @@ public class ContaPController implements IController<ContaPoupanca> {
     }
     @Override
     public boolean createCRUD(ContaPoupanca object) {
-        return this.contaPoupanca.createCRUD(object);
+        try{
+            return this.contaPoupanca.createCRUD(object);
+        }catch (ContaPoupancaException e){
+            System.err.println(e.getMessage());
+        }
+        return false;
     }
     @Override
     public ArrayList<ContaPoupanca> listarTudoCRUD() {
@@ -22,14 +28,32 @@ public class ContaPController implements IController<ContaPoupanca> {
     }
     @Override
     public ContaPoupanca buscar(int id) {
-        return this.contaPoupanca.buscar(id);
+        try{
+            return this.contaPoupanca.buscar(id);
+        }catch (ContaPoupancaException e){
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+    @Override
+    public ContaPoupanca buscar(String nome) {
+        return null;
     }
     @Override
     public boolean deleteCRUD(ContaPoupanca object) {
-        return this.contaPoupanca.deleteCRUD(object);
+        try {
+            return this.contaPoupanca.deleteCRUD(object);
+        }catch (ContaPoupancaException e){
+            System.err.println(e.getMessage());
+        }
+        return false;
     }
     @Override
     public void updateCRUD(int index, ContaPoupanca object) {
-        this.contaPoupanca.updateCRUD(index, object);
+        try {
+            this.contaPoupanca.updateCRUD(index, object);
+        }catch (ContaPoupancaException e){
+            System.err.println(e.getMessage());
+        }
     }
 }

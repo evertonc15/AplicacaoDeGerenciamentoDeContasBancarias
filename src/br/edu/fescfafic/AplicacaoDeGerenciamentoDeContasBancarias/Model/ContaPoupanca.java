@@ -13,4 +13,10 @@ public class ContaPoupanca extends ContaPController {
     public void setIdDaConta(int idDaConta) {
         this.idDaConta = idDaConta;
     }
+    @Override
+    public String toString() {
+        return "ContaPoupanca{" +
+                "idDaConta=" + idDaConta +
+                '}';
+    }
 }

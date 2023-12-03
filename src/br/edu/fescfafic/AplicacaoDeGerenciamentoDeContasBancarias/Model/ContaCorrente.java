@@ -13,4 +13,10 @@ public class ContaCorrente extends ContaCController {
     public void setIdDaConta(int idDaConta) {
         this.idDaConta = idDaConta;
     }
+    @Override
+    public String toString() {
+        return "ContaCorrente{" +
+                "idDaConta=" + idDaConta +
+                '}';
+    }
 }

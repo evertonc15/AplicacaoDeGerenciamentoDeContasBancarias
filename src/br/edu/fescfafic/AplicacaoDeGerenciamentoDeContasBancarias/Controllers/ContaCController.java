@@ -1,6 +1,7 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers;
 
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.DAO.ContaCorrenteDAO;
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Exception.ContaCorrenteException;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IController;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IDao;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.ContaCorrente;
@@ -8,25 +9,18 @@ import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.ContaCor
 import java.util.ArrayList;
 
 public class ContaCController implements IController<ContaCorrente> {
-    public IDao<ContaCorrente> contaCorrente;
+    private IDao<ContaCorrente> contaCorrente;
     public ContaCController(){
         this.contaCorrente = new ContaCorrenteDAO();
     }
-
     @Override
     public boolean createCRUD(ContaCorrente object) {
-        boolean verificar = false;
-        try{
-            if(object.getIdDaConta() > 100){
-                verificar = true;
-                System.out.println("Conta Criada com sucesso.");
-                return this.contaCorrente.createCRUD(object);
-            }
-            throw new ContaNaoPodeSerCriadaException();
-        }catch (ContaNaoPodeSerCriadaException e){
-            System.out.println(e);
-        }
-        return verificar;
+       try{
+           return this.contaCorrente.createCRUD(object);
+       }catch (ContaCorrenteException e){
+           System.err.println(e.getMessage());
+       }
+       return false;
     }
     @Override
     public ArrayList<ContaCorrente> listarTudoCRUD() {
@@ -34,14 +28,32 @@ public class ContaCController implements IController<ContaCorrente> {
     }
     @Override
     public ContaCorrente buscar(int id) {
-        return this.contaCorrente.buscar(id);
+        try {
+            return this.contaCorrente.buscar(id);
+        }catch (ContaCorrenteException e){
+            System.err.println(e.getMessage());
+        }
+        return null;
+    }
+    @Override
+    public ContaCorrente buscar(String nome) {
+        return null;
     }
     @Override
     public boolean deleteCRUD(ContaCorrente object) {
-        return this.contaCorrente.deleteCRUD(object);
+        try{
+            return this.contaCorrente.deleteCRUD(object);
+        }catch (ContaCorrenteException e){
+            System.err.println(e.getMessage());
+        }
+        return false;
     }
     @Override
     public void updateCRUD(int index, ContaCorrente object) {
-        this.contaCorrente.updateCRUD(index, object);
+        try{
+            this.contaCorrente.updateCRUD(index, object);
+        }catch (ContaCorrenteException e){
+            System.err.println(e.getMessage());
+        }
     }
 }

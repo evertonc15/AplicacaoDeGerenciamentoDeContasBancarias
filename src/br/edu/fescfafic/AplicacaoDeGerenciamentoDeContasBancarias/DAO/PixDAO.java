@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class PixDAO implements IDao<Pix> {
 
     private ArrayList<Pix> lstPix;
-
     public PixDAO() {
         lstPix =  new ArrayList<>();
     }

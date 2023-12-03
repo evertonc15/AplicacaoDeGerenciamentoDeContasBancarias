@@ -11,11 +11,9 @@ import java.util.ArrayList;
 public class PixController implements IController<Pix> {
 
     private IDao<Pix> dao;
-
     public PixController() {
         this.dao = new PixDAO();
     }
-
     @Override
     public boolean createCRUD(Pix object) {
         try {
@@ -25,12 +23,10 @@ public class PixController implements IController<Pix> {
         }
         return false;
     }
-
     @Override
     public ArrayList<Pix> listarTudoCRUD() {
         return this.dao.listarTudoCRUD();
     }
-
     @Override
     public Pix buscar(int id) {
         try {
@@ -40,7 +36,10 @@ public class PixController implements IController<Pix> {
         }
         return null;
     }
-
+    @Override
+    public Pix buscar(String nome) {
+        return null;
+    }
     @Override
     public boolean deleteCRUD(Pix object) {
         try {
@@ -50,7 +49,6 @@ public class PixController implements IController<Pix> {
         }
         return false;
     }
-
     @Override
     public void updateCRUD(int index, Pix object) {
         try {
@@ -59,6 +57,5 @@ public class PixController implements IController<Pix> {
             System.err.println(e.getMessage());
         }
     }
-
 }
 
