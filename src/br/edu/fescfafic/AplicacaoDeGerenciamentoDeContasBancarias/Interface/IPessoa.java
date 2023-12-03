@@ -1,7 +1,6 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface;
 
-public interface IPessoas {
+public interface IPessoa {
     void getNome();
-    void getSobrenome();
-    void getCpf();
+    void getIdade();
 }

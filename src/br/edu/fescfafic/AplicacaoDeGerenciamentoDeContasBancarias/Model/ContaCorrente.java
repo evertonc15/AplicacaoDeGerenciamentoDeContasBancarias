@@ -1,13 +1,16 @@
-package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Contas;
+package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model;
 
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers.ContaCController;
 
 public class ContaCorrente extends ContaCController {
-    public int idDaConta;
+    private int idDaConta;
     public ContaCorrente(int numeroDaConta){
         this.idDaConta = numeroDaConta;
     }
     public int getIdDaConta() {
         return idDaConta;
+    }
+    public void setIdDaConta(int idDaConta) {
+        this.idDaConta = idDaConta;
     }
 }

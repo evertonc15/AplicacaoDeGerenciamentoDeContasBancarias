@@ -3,12 +3,12 @@ package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.DAO.ContaPoupancaDAO;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IController;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IDao;
-import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Contas.ContaPoupanca;
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.ContaPoupanca;
 
 import java.util.ArrayList;
 
 public class ContaPController implements IController<ContaPoupanca> {
-    public IDao<ContaPoupanca> contaPoupanca;
+    private IDao<ContaPoupanca> contaPoupanca;
     public ContaPController(){
         this.contaPoupanca = new ContaPoupancaDAO();
     }

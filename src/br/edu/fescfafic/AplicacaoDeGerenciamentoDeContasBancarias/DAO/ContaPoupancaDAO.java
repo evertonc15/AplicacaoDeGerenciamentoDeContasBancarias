@@ -1,37 +1,52 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.DAO;
 
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Exception.ContaPoupancaException;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IDao;
-import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Contas.ContaPoupanca;
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.ContaPoupanca;
 
 import java.util.ArrayList;
 
 public class ContaPoupancaDAO implements IDao <ContaPoupanca> {
-    ArrayList<ContaPoupanca> contaPoupanca = new ArrayList<>();
+     private ArrayList<ContaPoupanca> contaPoupanca;
+     public ContaPoupancaDAO(){
+         contaPoupanca = new ArrayList<>();
+     }
     @Override
     public boolean createCRUD(ContaPoupanca object) {
         return this.contaPoupanca.add(object);
     }
     @Override
     public ArrayList<ContaPoupanca> listarTudoCRUD() {
-        System.out.println(contaPoupanca);
         return this.contaPoupanca;
     }
     @Override
     public ContaPoupanca buscar(int id) {
-        for(ContaPoupanca busca : this.contaPoupanca){
-            if(busca.getIdDaConta() != 0){
+        for(ContaPoupanca busca : contaPoupanca){
+            if(busca.getIdDaConta() == id){
                 return busca;
             }
         }
+        throw new ContaPoupancaException(String.format("ERRO > ID %s nao encontrado", id));
+    }
+    @Override
+    public ContaPoupanca buscar(String nome) {
         return null;
     }
     @Override
     public boolean deleteCRUD(ContaPoupanca object) {
-        return this.contaPoupanca.remove(object);
+        boolean removido = this.contaPoupanca.remove(object);
+        if (removido) {
+            return true;
+        } else {
+            throw new ContaPoupancaException("ERRO > %s nao encontrado");
+        }
     }
-
     @Override
     public void updateCRUD(int index, ContaPoupanca object) {
-        this.contaPoupanca.set(index, object);
+        try {
+            this.contaPoupanca.set(index, object);
+        } catch (ContaPoupancaException e) {
+            throw new ContaPoupancaException("ERRO > nao foi possivel atualizar a Conta Poupanca");
+        }
     }
 }

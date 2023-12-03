@@ -1,6 +1,6 @@
-package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Utils;
+package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model;
 
-public abstract class Funcionarios extends Pessoas{
+public abstract class Funcionarios extends Pessoa {
     public int id;
     public String numeroDeAcesso;
 

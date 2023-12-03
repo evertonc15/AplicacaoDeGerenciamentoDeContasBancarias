@@ -1,10 +1,9 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers;
 
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.DAO.ContaCorrenteDAO;
-import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Exception.ContaNaoPodeSerCriadaException;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IController;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IDao;
-import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Contas.ContaCorrente;
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.ContaCorrente;
 
 import java.util.ArrayList;
 
