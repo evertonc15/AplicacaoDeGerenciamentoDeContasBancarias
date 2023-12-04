@@ -25,7 +25,7 @@ public class PessoaController implements IController<Pessoa> {
     @Override
     public ArrayList<Pessoa> listarTudoCRUD() {
         try {
-            this.pessoa.listarTudoCRUD();
+            return this.pessoa.listarTudoCRUD();
         }catch (PessoaException e){
             System.err.println(e.getMessage());
         }
@@ -39,7 +39,7 @@ public class PessoaController implements IController<Pessoa> {
     @Override
     public Pessoa buscar(String nome) {
         try {
-            this.pessoa.buscar(nome);
+            return this.pessoa.buscar(nome);
         }catch (PessoaException e){
             System.err.println(e.getMessage());
         }

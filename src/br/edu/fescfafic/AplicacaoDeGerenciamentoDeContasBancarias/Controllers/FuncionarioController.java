@@ -1,40 +1,65 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers;
 
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.DAO.FuncionarioDAO;
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Exception.FuncionarioException;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IController;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IDao;
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Funcionario;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Pessoa;
 
 import java.util.ArrayList;
 
-public class FuncionarioController implements IController<Pessoa> {
-    private IDao<Pessoa> funcionario;
+public class FuncionarioController implements IController<Funcionario> {
+    private IDao<Funcionario> funcionario;
+    public FuncionarioController(){
+        this.funcionario = new FuncionarioDAO();
+    }
     @Override
-    public boolean createCRUD(Pessoa object) {
+    public boolean createCRUD(Funcionario object) {
+        try{
+            return this.funcionario.createCRUD(object);
+        }catch (FuncionarioException e){
+            System.err.println(e.getMessage());
+        }
         return false;
     }
-
     @Override
-    public ArrayList<Pessoa> listarTudoCRUD() {
+    public ArrayList<Funcionario> listarTudoCRUD() {
+        try{
+            return this.funcionario.listarTudoCRUD();
+        }catch (FuncionarioException e){
+            System.err.println(e.getMessage());
+        }
         return null;
     }
-
     @Override
-    public Pessoa buscar(int id) {
+    public Funcionario buscar(int id) {
+        try{
+            return this.funcionario.buscar(id);
+        }catch (FuncionarioException e){
+            System.err.println(e.getMessage());
+        }
         return null;
     }
-
     @Override
-    public Pessoa buscar(String nome) {
+    public Funcionario buscar(String nome) {
         return null;
     }
-
     @Override
-    public boolean deleteCRUD(Pessoa object) {
+    public boolean deleteCRUD(Funcionario object) {
+        try {
+            return this.funcionario.deleteCRUD(object);
+        }catch (FuncionarioException e){
+            System.err.println(e.getMessage());
+        }
         return false;
     }
-
     @Override
-    public void updateCRUD(int index, Pessoa object) {
-
+    public void updateCRUD(int index, Funcionario object) {
+        try {
+            this.funcionario.updateCRUD(index, object);
+        }catch (FuncionarioException e){
+            System.err.println(e.getMessage());
+        }
     }
 }
