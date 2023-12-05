@@ -29,10 +29,6 @@ public class FuncionarioDAO implements IDao<Funcionario> {
         throw new FuncionarioException(String.format("ERRO > Funcionario com id %s nao encontrado.", id));
     }
     @Override
-    public Funcionario buscar(String nome) {
-        return null;
-    }
-    @Override
     public boolean deleteCRUD(Funcionario object) {
         boolean deletado = this.funcionarios.remove(object);
         if(deletado){

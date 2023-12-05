@@ -37,10 +37,6 @@ public class PixController implements IController<Pix> {
         return null;
     }
     @Override
-    public Pix buscar(String nome) {
-        return null;
-    }
-    @Override
     public boolean deleteCRUD(Pix object) {
         try {
             return this.dao.deleteCRUD(object);

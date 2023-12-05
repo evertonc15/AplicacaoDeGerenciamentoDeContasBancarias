@@ -21,16 +21,12 @@ public class PessoaDAO implements IDao<Pessoa> {
     }
     @Override
     public Pessoa buscar(int id) {
-        return null;
-    }
-    @Override
-    public Pessoa buscar(String nome) {
         for(Pessoa pessoa : pessoas){
-            if(pessoa.getNome().equals(nome)){
+            if(pessoa.getId() == id){
                 return pessoa;
             }
         }
-        throw new PessoaException(String.format("ERRO > %s nao encontrado.", nome));
+        throw new PessoaException(String.format("Pessoa com id %s nao encontrando.", id));
     }
     @Override
     public boolean deleteCRUD(Pessoa object) {

@@ -33,13 +33,8 @@ public class PessoaController implements IController<Pessoa> {
     }
     @Override
     public Pessoa buscar(int id) {
-        return null;
-    }
-
-    @Override
-    public Pessoa buscar(String nome) {
         try {
-            return this.pessoa.buscar(nome);
+            return this.pessoa.buscar(id);
         }catch (PessoaException e){
             System.err.println(e.getMessage());
         }

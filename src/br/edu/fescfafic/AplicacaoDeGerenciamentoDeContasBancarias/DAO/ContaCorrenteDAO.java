@@ -30,10 +30,6 @@ public class ContaCorrenteDAO implements  IDao <ContaCorrente>{
         throw new ContaCorrenteException(String.format("ERRO > ID %s nao encontrada.", id));
     }
     @Override
-    public ContaCorrente buscar(String nome) {
-        return null;
-    }
-    @Override
     public boolean deleteCRUD(ContaCorrente object) {
         boolean deletar = this.contaCorrente.remove(object);
         if(deletar){

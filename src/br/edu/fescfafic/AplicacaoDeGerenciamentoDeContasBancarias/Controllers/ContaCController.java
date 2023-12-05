@@ -16,6 +16,7 @@ public class ContaCController implements IController<ContaCorrente> {
     @Override
     public boolean createCRUD(ContaCorrente object) {
        try{
+           System.out.println("Conta Criada com Sucesso.");
            return this.contaCorrente.createCRUD(object);
        }catch (ContaCorrenteException e){
            System.err.println(e.getMessage());
@@ -33,10 +34,6 @@ public class ContaCController implements IController<ContaCorrente> {
         }catch (ContaCorrenteException e){
             System.err.println(e.getMessage());
         }
-        return null;
-    }
-    @Override
-    public ContaCorrente buscar(String nome) {
         return null;
     }
     @Override

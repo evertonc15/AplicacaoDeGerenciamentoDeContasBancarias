@@ -1,11 +1,14 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model;
 
-import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers.ContaCController;
 
-public class ContaCorrente extends ContaCController {
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IContaCorrente;
+
+public class ContaCorrente implements IContaCorrente {
     private int idDaConta;
-    public ContaCorrente(int numeroDaConta){
-        this.idDaConta = numeroDaConta;
+    private String numeroDaConta;
+    public ContaCorrente(int idDaConta, String numeroDaConta){
+        this.idDaConta = idDaConta;
+        this.numeroDaConta = numeroDaConta;
     }
     public int getIdDaConta() {
         return idDaConta;
@@ -14,9 +17,16 @@ public class ContaCorrente extends ContaCController {
         this.idDaConta = idDaConta;
     }
     @Override
+    public void getNumeroDaContaC() {
+    }
+    public void setNumeroDaConta(String numeroDaConta) {
+        this.numeroDaConta = numeroDaConta;
+    }
+    @Override
     public String toString() {
         return "ContaCorrente{" +
                 "idDaConta=" + idDaConta +
+                ", numeroDaConta='" + numeroDaConta + '\'' +
                 '}';
     }
 }

@@ -5,12 +5,11 @@ import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Exception.Func
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IController;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IDao;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Funcionario;
-import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Pessoa;
 
 import java.util.ArrayList;
 
 public class FuncionarioController implements IController<Funcionario> {
-    private IDao<Funcionario> funcionario;
+    private final IDao<Funcionario> funcionario;
     public FuncionarioController(){
         this.funcionario = new FuncionarioDAO();
     }
@@ -39,10 +38,6 @@ public class FuncionarioController implements IController<Funcionario> {
         }catch (FuncionarioException e){
             System.err.println(e.getMessage());
         }
-        return null;
-    }
-    @Override
-    public Funcionario buscar(String nome) {
         return null;
     }
     @Override

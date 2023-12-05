@@ -31,10 +31,6 @@ public class PixDAO implements IDao<Pix> {
         throw new PixException(String.format("ERRO > Pix com id %s nao encontrado", id));
     }
     @Override
-    public Pix buscar(String nome) {
-        return null;
-    }
-    @Override
     public boolean deleteCRUD(Pix object) {
         boolean removido = this.lstPix.remove(object);
         if (removido) {

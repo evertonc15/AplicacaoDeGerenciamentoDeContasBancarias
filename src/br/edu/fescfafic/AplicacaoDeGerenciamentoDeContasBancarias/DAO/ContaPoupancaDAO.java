@@ -29,10 +29,6 @@ public class ContaPoupancaDAO implements IDao <ContaPoupanca> {
         throw new ContaPoupancaException(String.format("ERRO > ID %s nao encontrado", id));
     }
     @Override
-    public ContaPoupanca buscar(String nome) {
-        return null;
-    }
-    @Override
     public boolean deleteCRUD(ContaPoupanca object) {
         boolean removido = this.contaPoupanca.remove(object);
         if (removido) {

@@ -36,10 +36,6 @@ public class ContaPController implements IController<ContaPoupanca> {
         return null;
     }
     @Override
-    public ContaPoupanca buscar(String nome) {
-        return null;
-    }
-    @Override
     public boolean deleteCRUD(ContaPoupanca object) {
         try {
             return this.contaPoupanca.deleteCRUD(object);

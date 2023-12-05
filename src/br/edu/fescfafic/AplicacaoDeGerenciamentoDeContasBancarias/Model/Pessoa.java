@@ -1,13 +1,16 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model;
 
 public abstract class Pessoa {
-    public String nome;
-    public String sobrenome;
-    public String cpf;
-    public Pessoa(String nome, String sobrenome, String cpf){
+    private String nome;
+    private String sobrenome;
+    private String cpf;
+    private int id;
+
+    public Pessoa(String nome, String sobrenome, String cpf, int id){
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
+        this.id = id;
     }
     public String getNome() {
         return nome;
@@ -20,6 +23,13 @@ public abstract class Pessoa {
     }
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
     @Override
     public String toString() {

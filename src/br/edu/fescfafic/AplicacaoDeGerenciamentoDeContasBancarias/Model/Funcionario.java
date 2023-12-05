@@ -22,7 +22,7 @@ public abstract class Funcionario extends Pessoa {
     private String numeroDeAcesso;
 
     public Funcionario(String nome, String sobrenome, String cpf, int id, String numeroDeAcesso) {
-        super(nome, sobrenome, cpf);
+        super(nome, sobrenome, cpf, id);
         this.id = id;
         this.numeroDeAcesso = numeroDeAcesso;
     }
