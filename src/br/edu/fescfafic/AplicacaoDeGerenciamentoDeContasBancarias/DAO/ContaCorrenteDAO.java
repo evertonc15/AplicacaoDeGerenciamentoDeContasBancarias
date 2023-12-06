@@ -13,7 +13,7 @@ public class ContaCorrenteDAO implements  IDao <ContaCorrente>{
     }
     @Override
     public boolean createCRUD(ContaCorrente object) {
-        return this.contaCorrente.add(object);
+       return this.contaCorrente.add(object);
     }
     @Override
     public ArrayList<ContaCorrente> listarTudoCRUD() {
@@ -23,7 +23,7 @@ public class ContaCorrenteDAO implements  IDao <ContaCorrente>{
     @Override
     public ContaCorrente buscar(int id) {
         for(ContaCorrente busca : this.contaCorrente){
-            if(busca.getIdDaConta() == id){
+            if(busca.getidDaContaP() == id){
                 return busca;
             }
         }

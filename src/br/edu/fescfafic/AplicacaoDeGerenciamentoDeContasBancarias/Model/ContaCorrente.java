@@ -1,6 +1,5 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model;
 
-
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IContaCorrente;
 
 public class ContaCorrente implements IContaCorrente {
@@ -10,14 +9,17 @@ public class ContaCorrente implements IContaCorrente {
         this.idDaConta = idDaConta;
         this.numeroDaConta = numeroDaConta;
     }
-    public int getIdDaConta() {
-        return idDaConta;
-    }
+
     public void setIdDaConta(int idDaConta) {
         this.idDaConta = idDaConta;
     }
     @Override
+    public int getidDaContaP() {
+        return idDaConta;
+    }
+    @Override
     public void getNumeroDaContaC() {
+        this.numeroDaConta = numeroDaConta;
     }
     public void setNumeroDaConta(String numeroDaConta) {
         this.numeroDaConta = numeroDaConta;

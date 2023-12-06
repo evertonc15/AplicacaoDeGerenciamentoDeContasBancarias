@@ -16,6 +16,7 @@ public class ContaPController implements IController<ContaPoupanca> {
     @Override
     public boolean createCRUD(ContaPoupanca object) {
         try{
+            System.out.println("Conta criada com sucesso.");
             return this.contaPoupanca.createCRUD(object);
         }catch (ContaPoupancaException e){
             System.err.println(e.getMessage());
@@ -38,6 +39,7 @@ public class ContaPController implements IController<ContaPoupanca> {
     @Override
     public boolean deleteCRUD(ContaPoupanca object) {
         try {
+            System.out.println("Conta Deletada com sucesso.");
             return this.contaPoupanca.deleteCRUD(object);
         }catch (ContaPoupancaException e){
             System.err.println(e.getMessage());

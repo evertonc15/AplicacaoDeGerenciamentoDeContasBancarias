@@ -1,22 +1,34 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model;
 
-import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers.ContaPController;
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IContaPoupanca;
 
-public class ContaPoupanca extends ContaPController {
+public class ContaPoupanca implements IContaPoupanca {
     private int idDaConta;
-    public ContaPoupanca(int numeroDaConta){
-        this.idDaConta = numeroDaConta;
+    private String numeroDaConta;
+    public ContaPoupanca(int idDaConta, String numeroDaConta){
+        this.idDaConta = idDaConta;
+        this.numeroDaConta = numeroDaConta;
     }
-    public int getIdDaConta() {
+    @Override
+    public int getidDaContaP() {
         return idDaConta;
+    }
+
+    @Override
+    public String getNumeroDacontaP() {
+        return numeroDaConta;
     }
     public void setIdDaConta(int idDaConta) {
         this.idDaConta = idDaConta;
+    }
+    public void setNumeroDaConta(String numeroDaConta) {
+        this.numeroDaConta = numeroDaConta;
     }
     @Override
     public String toString() {
         return "ContaPoupanca{" +
                 "idDaConta=" + idDaConta +
+                ", numeroDaConta='" + numeroDaConta + '\'' +
                 '}';
     }
 }

@@ -12,7 +12,6 @@ public class PixDAO implements IDao<Pix> {
     public PixDAO() {
         lstPix =  new ArrayList<>();
     }
-
     @Override
     public boolean createCRUD(Pix object) {
         return this.lstPix.add(object);
@@ -24,7 +23,7 @@ public class PixDAO implements IDao<Pix> {
     @Override
     public Pix buscar(int id) {
         for(Pix pix : lstPix) {
-            if (pix.getId() == id) {
+            if (pix.getIdPix() == id) {
                 return pix;
             }
         }

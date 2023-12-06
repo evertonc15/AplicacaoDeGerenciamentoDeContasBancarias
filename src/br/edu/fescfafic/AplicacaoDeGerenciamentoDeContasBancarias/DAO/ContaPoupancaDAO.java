@@ -22,7 +22,7 @@ public class ContaPoupancaDAO implements IDao <ContaPoupanca> {
     @Override
     public ContaPoupanca buscar(int id) {
         for(ContaPoupanca busca : contaPoupanca){
-            if(busca.getIdDaConta() == id){
+            if(busca.getidDaContaP() == id){
                 return busca;
             }
         }

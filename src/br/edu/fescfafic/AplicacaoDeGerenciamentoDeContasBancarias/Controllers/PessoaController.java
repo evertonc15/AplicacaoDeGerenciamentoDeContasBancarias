@@ -16,6 +16,7 @@ public class PessoaController implements IController<Pessoa> {
     @Override
     public boolean createCRUD(Pessoa object) {
         try {
+            System.out.println("Pessoa criada com sucesso.");
             return this.pessoa.createCRUD(object);
         }catch (PessoaException e){
             System.err.println(e.getMessage());
@@ -43,6 +44,7 @@ public class PessoaController implements IController<Pessoa> {
     @Override
     public boolean deleteCRUD(Pessoa object) {
         try {
+            System.out.println("Pessoa deletada com sucesso.");
             return this.pessoa.deleteCRUD(object);
         }catch (PessoaException e){
             System.err.println(e.getMessage());

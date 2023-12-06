@@ -1,7 +1,8 @@
 package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model;
 
-public class Pix {
+import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Interface.IPix;
 
+public class Pix implements IPix {
     private int id;
     private String chaveDestino;
     private double valor;
@@ -11,31 +12,21 @@ public class Pix {
         this.chaveDestino = chaveDestino;
         this.valor = valor;
     }
-
-    public int getId() {
+    @Override
+    public int getIdPix(){
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+    @Override
     public String getChaveDestino() {
         return chaveDestino;
     }
-
-    public void setChaveDestino(String chaveDestino) {
-        this.chaveDestino = chaveDestino;
-    }
-
+    @Override
     public double getValor() {
         return valor;
     }
-
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setId(int id) {
+        this.id = id;
     }
-
     @Override
     public String toString() {
         return "Pix{" +

@@ -9,13 +9,14 @@ import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.Funciona
 import java.util.ArrayList;
 
 public class FuncionarioController implements IController<Funcionario> {
-    private final IDao<Funcionario> funcionario;
+    private IDao<Funcionario> funcionario;
     public FuncionarioController(){
         this.funcionario = new FuncionarioDAO();
     }
     @Override
     public boolean createCRUD(Funcionario object) {
         try{
+            System.out.println("Funcionario criado com sucesso.");
             return this.funcionario.createCRUD(object);
         }catch (FuncionarioException e){
             System.err.println(e.getMessage());
@@ -43,6 +44,7 @@ public class FuncionarioController implements IController<Funcionario> {
     @Override
     public boolean deleteCRUD(Funcionario object) {
         try {
+            System.out.println("Funcionario deletado.");
             return this.funcionario.deleteCRUD(object);
         }catch (FuncionarioException e){
             System.err.println(e.getMessage());

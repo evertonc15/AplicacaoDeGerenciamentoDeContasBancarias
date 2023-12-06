@@ -18,8 +18,14 @@ public abstract class Pessoa {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    public String getSobrenome() {
+        return sobrenome;
+    }
     public void setSobrenome(String sobrenome) {
         this.sobrenome = sobrenome;
+    }
+    public String getCpf() {
+        return cpf;
     }
     public void setCpf(String cpf) {
         this.cpf = cpf;
@@ -27,7 +33,6 @@ public abstract class Pessoa {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -37,6 +42,7 @@ public abstract class Pessoa {
                 "nome='" + nome + '\'' +
                 ", sobrenome='" + sobrenome + '\'' +
                 ", cpf='" + cpf + '\'' +
+                ", id=" + id +
                 '}';
     }
 }
