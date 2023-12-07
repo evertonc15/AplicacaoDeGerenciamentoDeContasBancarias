@@ -45,4 +45,12 @@ public abstract class Pessoa {
                 ", id=" + id +
                 '}';
     }
+    public static void exibirMenu(){
+        String texto = "";
+        texto += "1 - Gerente \n";
+        texto += "2 - Assistentes \n";
+        texto += "3 - Sair";
+
+        System.out.println(texto);
+    }
 }

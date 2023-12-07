@@ -11,12 +11,12 @@ public class ContaPoupanca implements IContaPoupanca {
     }
     @Override
     public int getidDaContaP() {
-        return idDaConta;
+        return this.idDaConta;
     }
 
     @Override
     public String getNumeroDacontaP() {
-        return numeroDaConta;
+        return this.numeroDaConta;
     }
     public void setIdDaConta(int idDaConta) {
         this.idDaConta = idDaConta;

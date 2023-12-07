@@ -2,6 +2,8 @@ package br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Main;
 
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Controllers.*;
 import br.edu.fescfafic.AplicacaoDeGerenciamentoDeContasBancarias.Model.*;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +13,7 @@ public class Main {
         ContaPController contaPController = new ContaPController();
         ContaCController contaCController = new ContaCController();
         PixController pixController = new PixController();
+        TransferenciaController transferenciaController = new TransferenciaController();
         boolean condicaoparada = true;
 
         while (condicaoparada) {
@@ -21,23 +24,43 @@ public class Main {
                     System.out.println("Programa Encerrado!");
                     condicaoparada = false;
                 }
-                case 2 -> {
+                case 1 -> {
                     boolean condicaoParadaPessoa = true;
                     while (condicaoParadaPessoa){
-                        exibirMenu();
-                        int opcaoPessoa = scanner.nextInt();
-                        switch (opcaoPessoa){
-                            case 0 -> condicaoParadaPessoa = false;
-                            case 1 -> {
-                                System.out.println("Digite o nome: ");
-                                String nome = scanner.next();
-                                System.out.println("Digite o sobrenome: ");
-                                String sobrenome = scanner.next();
-                                System.out.println("Digite o numero do cpf: ");
-                                String cpf = scanner.next();
-                                System.out.println("Digite seu id: ");
-                                int idPessoa = scanner.nextInt();
+                        boolean parar = true;
+                        while (parar){
+                            Pessoa.exibirMenu();
+                            int escolha = scanner.nextInt();
+                            switch (escolha){
+                                case 0 -> parar = false;
+                                case 1 -> {
+                                    exibirMenu();
+                                    int opcaoPessoa = scanner.nextInt();
+                                    switch (opcaoPessoa){
+                                        case 0 -> condicaoParadaPessoa = false;
+                                        case 1 -> {
+                                            System.out.println("Digite o nome: ");
+                                            String nome = scanner.next();
+                                            System.out.println("Digite o sobrenome: ");
+                                            String sobrenome = scanner.next();
+                                            System.out.println("Digite o numero do cpf: ");
+                                            String cpf = scanner.next();
+                                            System.out.println("Digite seu id: ");
+                                            int idPessoa = scanner.nextInt();
+                                            System.out.println("Digite o numero de Acesso: ");
+                                            String numeroDeAcesso = scanner.next();
+                                            Pessoa gerente = new Gerente(nome, sobrenome, cpf, idPessoa, numeroDeAcesso);
+                                        }
+                                        case 2 -> System.out.println(pessoa.listarTudoCRUD());
+                                        case 3 -> {
+                                            System.out.print("Digite o ID que deseja buscar: ");
+                                            int idGerenteBuscar = scanner.nextInt();
+                                            System.out.println(pessoa.buscar(idGerenteBuscar));
+                                        }
+                                    }
+                                }
                             }
+
                         }
                     }
                 }
@@ -57,7 +80,6 @@ public class Main {
                                 contaPController.createCRUD(cp);
                             }
                             case 2 -> System.out.println(contaPController.listarTudoCRUD());
-
                             case 3 -> {
                                 System.out.print("Digite o ID que deseja buscar: ");
                                 int idCPBuscar = scanner.nextInt();
@@ -71,6 +93,11 @@ public class Main {
                                 contaPController.deleteCRUD(cp);
                             }
                             case 5 -> {
+                                ArrayList<ContaPoupanca> lista = contaPController.listarTudoCRUD();
+                                for(int i = 0; i < lista.size(); i++) {
+                                    System.out.printf("id %d", i);
+                                    System.out.println("-" + lista.get(i).toString());
+                                }
                                 System.out.println(contaPController.listarTudoCRUD());
                                 System.out.println("Qual a CP deseja editar: ");
                                 int idCPUpdate = scanner.nextInt();
@@ -102,7 +129,6 @@ public class Main {
                                 contaCController.createCRUD(cc);
                             }
                             case 2 -> System.out.println(contaCController.listarTudoCRUD());
-
                             case 3 -> {
                                 System.out.print("Digite o ID que deseja buscar: ");
                                 int idCCbuscar = scanner.nextInt();
@@ -116,7 +142,11 @@ public class Main {
                                 contaCController.deleteCRUD(cc);
                             }
                             case 5 -> {
-                                System.out.println(contaCController.listarTudoCRUD());
+                                ArrayList<ContaCorrente> lista = contaCController.listarTudoCRUD();
+                                for(int i = 0; i < lista.size(); i++){
+                                    System.out.printf("id %d", i);
+                                    System.out.println("-" + lista.get(i).toString());
+                                }
                                 System.out.println("Qual a CC deseja editar: ");
                                 int idCCUpdate = scanner.nextInt();
                                 System.out.println("Digite o numero da Conta: ");
@@ -149,7 +179,6 @@ public class Main {
                                 pixController.createCRUD(pix);
                             }
                             case 2 -> System.out.print(pixController.listarTudoCRUD());
-
                             case 3 ->{
                                 System.out.print("Digite o ID que deseja buscar: ");
                                 int idPixbuscar = scanner.nextInt();
@@ -163,6 +192,11 @@ public class Main {
                                 pixController.deleteCRUD(pix);
                             }
                             case 5 ->{
+                                ArrayList<Pix> lista = pixController.listarTudoCRUD();
+                                for(int i = 0; i < lista.size(); i++) {
+                                    System.out.printf("id %d", i);
+                                    System.out.println("-" + lista.get(i).toString());
+                                }
                                 System.out.println(pixController.listarTudoCRUD());
                                 System.out.println("Qual o Pix deseja editar: ");
                                 int idPixUpdate = scanner.nextInt();
@@ -175,7 +209,61 @@ public class Main {
                             }
                             default -> {
                                 System.out.println("Opcao Invalida!");
-                                exibirMenuPrincipal();}
+                                exibirMenuPrincipal();
+                            }
+                        }
+                    }
+                }
+                case 6 -> {
+                    boolean condicaoParadaTB = true;
+                    while (condicaoParadaTB) {
+                        exibirMenu();
+                        int opcaoTB = scanner.nextInt();
+                        switch (opcaoTB){
+                            case 0 -> condicaoParadaTB = false;
+                            case 1 -> {
+                                System.out.print("Digite o ID da Transferencia: ");
+                                int idTB = scanner.nextInt();
+                                System.out.print("Digite a Chave de destino: ");
+                                String chaveDestinoTB = scanner.next();
+                                System.out.print("Digite o valor da transferencia: ");
+                                double valorTB = scanner.nextDouble();
+                                TransferenciaBancaria tb = new TransferenciaBancaria(idTB, chaveDestinoTB, valorTB);
+                                transferenciaController.createCRUD(tb);
+                            }
+                            case 2 -> System.out.println(transferenciaController.listarTudoCRUD());
+                            case 3 -> {
+                                System.out.print("Digite o ID que deseja buscar: ");
+                                int idTBBuscar = scanner.nextInt();
+                                System.out.println(transferenciaController.buscar(idTBBuscar));
+                            }
+                            case 4 -> {
+                                System.out.print("Qual a transferencia que deseja deletar: ");
+                                int idTBDelete = scanner.nextInt();
+                                TransferenciaBancaria tb = transferenciaController.buscar(idTBDelete);
+                                System.out.println(tb);
+                                transferenciaController.deleteCRUD(tb);
+                            }
+                            case 5 -> {
+                                ArrayList<TransferenciaBancaria> lista = transferenciaController.listarTudoCRUD();
+                                for(int i = 0; i < lista.size(); i++) {
+                                    System.out.printf("id %d", i);
+                                    System.out.println("-" + lista.get(i).toString());
+                                }
+                                System.out.println(transferenciaController.listarTudoCRUD());
+                                System.out.println("Qual a Transferencia que deseja editar: ");
+                                int idTBUpdate = scanner.nextInt();
+                                System.out.print("Digite a nova Chave de destino: ");
+                                String chaveDestinoTB = scanner.next();
+                                System.out.print("Digite o valor da transferencia: ");
+                                double valorTB = scanner.nextDouble();
+                                TransferenciaBancaria tb = new TransferenciaBancaria(idTBUpdate, chaveDestinoTB, valorTB);
+                                transferenciaController.updateCRUD(idTBUpdate, tb);
+                            }
+                            default -> {
+                                System.out.println("Opcao Invalida!");
+                                exibirMenuPrincipal();
+                            }
                         }
                     }
                 }
@@ -183,18 +271,19 @@ public class Main {
         }
     }
     public static void exibirMenuPrincipal() {
-        String texto = new String();
+        String texto = "";
         texto += "1 - Pessoa \n";
         texto += "2 - Funcionario \n";
         texto += "3 - Conta Poupanca \n";
         texto += "4 - Conta Corrente \n";
         texto += "5 - PIX \n";
+        texto += "6 - Transferencia Bancaria \n";
         texto += "0 - Sair\n";
 
         System.out.println(texto);
     }
     public static void exibirMenu() {
-        String texto = new String();
+        String texto = "";
         texto += "1 - Criar \n";
         texto += "2 - Listar \n";
         texto += "3 - Buscar \n";

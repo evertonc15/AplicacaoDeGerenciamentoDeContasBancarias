@@ -15,7 +15,7 @@ public class ContaCorrente implements IContaCorrente {
     }
     @Override
     public int getidDaContaP() {
-        return idDaConta;
+        return this.idDaConta;
     }
     @Override
     public void getNumeroDaContaC() {
