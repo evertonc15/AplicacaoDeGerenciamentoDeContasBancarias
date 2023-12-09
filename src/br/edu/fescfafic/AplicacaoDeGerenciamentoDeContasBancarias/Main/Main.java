@@ -50,6 +50,7 @@ public class Main {
                                             System.out.println("Digite o numero de Acesso: ");
                                             String numeroDeAcesso = scanner.next();
                                             Pessoa gerente = new Gerente(nome, sobrenome, cpf, idPessoa, numeroDeAcesso);
+
                                         }
                                         case 2 -> System.out.println(pessoa.listarTudoCRUD());
                                         case 3 -> {
@@ -86,6 +87,11 @@ public class Main {
                                 System.out.println(contaPController.buscar(idCPBuscar));
                             }
                             case 4 -> {
+                                ArrayList<ContaPoupanca> lista = contaPController.listarTudoCRUD();
+                                for(int i = 0; i < lista.size(); i++) {
+                                    System.out.printf("id %d", i);
+                                    System.out.println("-" + lista.get(i).toString());
+                                }
                                 System.out.print("Qual a CP que deseja deletar: ");
                                 int idCPDelete = scanner.nextInt();
                                 ContaPoupanca cp = contaPController.buscar(idCPDelete);
@@ -98,7 +104,6 @@ public class Main {
                                     System.out.printf("id %d", i);
                                     System.out.println("-" + lista.get(i).toString());
                                 }
-                                System.out.println(contaPController.listarTudoCRUD());
                                 System.out.println("Qual a CP deseja editar: ");
                                 int idCPUpdate = scanner.nextInt();
                                 System.out.println("Digite o numero da Conta: ");

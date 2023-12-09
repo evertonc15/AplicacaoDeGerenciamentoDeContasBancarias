@@ -17,7 +17,7 @@ public class ContaCorrenteDAO implements  IDao <ContaCorrente>{
     }
     @Override
     public ArrayList<ContaCorrente> listarTudoCRUD() {
-        return this.contaCorrente;
+            return this.contaCorrente;
     }
 
     @Override

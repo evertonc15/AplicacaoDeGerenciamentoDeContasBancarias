@@ -25,7 +25,7 @@ public class ContaCController implements IController<ContaCorrente> {
     }
     @Override
     public ArrayList<ContaCorrente> listarTudoCRUD() {
-        return this.contaCorrente.listarTudoCRUD();
+            return this.contaCorrente.listarTudoCRUD();
     }
     @Override
     public ContaCorrente buscar(int id) {

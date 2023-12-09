@@ -34,7 +34,7 @@ public class ContaPoupancaDAO implements IDao <ContaPoupanca> {
         if (removido) {
             return true;
         } else {
-            throw new ContaPoupancaException("ERRO > %s nao encontrado");
+            throw new ContaPoupancaException("ERRO > ID nao encontrado");
         }
     }
     @Override
