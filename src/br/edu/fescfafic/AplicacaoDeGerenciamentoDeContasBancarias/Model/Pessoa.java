@@ -49,7 +49,7 @@ public abstract class Pessoa {
         String texto = "";
         texto += "1 - Gerente \n";
         texto += "2 - Assistentes \n";
-        texto += "3 - Sair";
+        texto += "0 - Sair";
 
         System.out.println(texto);
     }

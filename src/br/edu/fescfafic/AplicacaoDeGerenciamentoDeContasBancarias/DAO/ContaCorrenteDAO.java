@@ -40,10 +40,9 @@ public class ContaCorrenteDAO implements  IDao <ContaCorrente>{
     }
     @Override
     public void updateCRUD(int index, ContaCorrente object) {
-        try{
+        if(contaCorrente.size() > index){
             this.contaCorrente.set(index, object);
-        }catch (ContaCorrenteException e){
-            throw new ContaCorrenteException("ERRO > nao foi possivel atualizar a Conta Conta Corrente");
         }
+        throw new ContaCorrenteException("ERRO > Index nao encotrado.");
     }
 }
