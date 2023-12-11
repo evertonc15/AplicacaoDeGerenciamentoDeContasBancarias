@@ -39,15 +39,15 @@ public class Main {
                                     switch (opcaoGerente) {
                                         case 0 -> condicaoParadaGerente = false;
                                         case 1 -> {
-                                            System.out.println("Digite o nome: ");
+                                            System.out.print("Digite o nome: ");
                                             String nome = scanner.next();
-                                            System.out.println("Digite o sobrenome: ");
+                                            System.out.print("Digite o sobrenome: ");
                                             String sobrenome = scanner.next();
-                                            System.out.println("Digite o numero do cpf: ");
+                                            System.out.print("Digite o numero do cpf: ");
                                             String cpf = scanner.next();
-                                            System.out.println("Digite seu id: ");
+                                            System.out.print("Digite seu id: ");
                                             int idPessoa = scanner.nextInt();
-                                            System.out.println("Digite o numero de Acesso: ");
+                                            System.out.print("Digite o numero de Acesso: ");
                                             String numeroDeAcesso = scanner.next();
                                             Pessoa gerente = new Gerente(nome, sobrenome, cpf, idPessoa, numeroDeAcesso);
                                             pessoaController.createCRUD(gerente);
@@ -75,17 +75,17 @@ public class Main {
                                                 System.out.printf("index %d", i);
                                                 System.out.println(" - " + lista.get(i).toString());
                                             }
-                                            System.out.println("Digite o index que deseja atualizar: ");
+                                            System.out.print("Digite o index que deseja atualizar: ");
                                             int idGerenteUpdate = scanner.nextInt();
-                                            System.out.println("Digite o nome: ");
+                                            System.out.print("Digite o nome: ");
                                             String nome = scanner.next();
-                                            System.out.println("Digite o sobrenome: ");
+                                            System.out.print("Digite o sobrenome: ");
                                             String sobrenome = scanner.next();
-                                            System.out.println("Digite o numero do cpf: ");
+                                            System.out.print("Digite o numero do cpf: ");
                                             String cpf = scanner.next();
-                                            System.out.println("Digite seu id: ");
+                                            System.out.print("Digite seu id: ");
                                             int idGerente = scanner.nextInt();
-                                            System.out.println("Digite o numero de Acesso: ");
+                                            System.out.print("Digite o numero de Acesso: ");
                                             String numeroDeAcesso = scanner.next();
                                             Pessoa gerente = new Gerente(nome, sobrenome, cpf, idGerente, numeroDeAcesso);
                                             pessoaController.updateCRUD(idGerenteUpdate, gerente);
@@ -103,15 +103,15 @@ public class Main {
                                     switch (opcaoAssistente) {
                                         case 0 -> condicaoParadaAssistente = false;
                                         case 1 -> {
-                                            System.out.println("Digite o nome: ");
+                                            System.out.print("Digite o nome: ");
                                             String nome = scanner.next();
-                                            System.out.println("Digite o sobrenome: ");
+                                            System.out.print("Digite o sobrenome: ");
                                             String sobrenome = scanner.next();
-                                            System.out.println("Digite o numero do cpf: ");
+                                            System.out.print("Digite o numero do cpf: ");
                                             String cpf = scanner.next();
-                                            System.out.println("Digite seu id: ");
+                                            System.out.print("Digite seu id: ");
                                             int idAssistente = scanner.nextInt();
-                                            System.out.println("Digite o numero de Acesso: ");
+                                            System.out.print("Digite o numero de Acesso: ");
                                             String numeroDeAcesso = scanner.next();
                                             Pessoa assistente = new Assistentes(nome, sobrenome, cpf, idAssistente, numeroDeAcesso);
                                             pessoaController.createCRUD(assistente);
@@ -139,17 +139,17 @@ public class Main {
                                                 System.out.printf("index %d", i);
                                                 System.out.println(" - " + lista.get(i).toString());
                                             }
-                                            System.out.println("Digite o index que deseja atualizar: ");
+                                            System.out.print("Digite o index que deseja atualizar: ");
                                             int idAssistenteUpdate = scanner.nextInt();
-                                            System.out.println("Digite o nome: ");
+                                            System.out.print("Digite o nome: ");
                                             String nome = scanner.next();
-                                            System.out.println("Digite o sobrenome: ");
+                                            System.out.print("Digite o sobrenome: ");
                                             String sobrenome = scanner.next();
-                                            System.out.println("Digite o numero do cpf: ");
+                                            System.out.print("Digite o numero do cpf: ");
                                             String cpf = scanner.next();
-                                            System.out.println("Digite seu id: ");
+                                            System.out.print("Digite seu id: ");
                                             int idAssistente = scanner.nextInt();
-                                            System.out.println("Digite o numero de Acesso: ");
+                                            System.out.print("Digite o numero de Acesso: ");
                                             String numeroDeAcesso = scanner.next();
                                             Pessoa assistente = new Assistentes(nome, sobrenome, cpf, idAssistente, numeroDeAcesso);
                                             pessoaController.updateCRUD(idAssistenteUpdate, assistente);
@@ -171,9 +171,9 @@ public class Main {
                         switch (opcaoCP) {
                             case 0 -> condicaoParadaCP = false;
                             case 1 -> {
-                                System.out.println("Digite o id da Conta: ");
+                                System.out.print("Digite o id da Conta: ");
                                 int idCP = scanner.nextInt();
-                                System.out.println("Digite o numero da Conta: ");
+                                System.out.print("Digite o numero da Conta: ");
                                 String numeroDaCP = scanner.next();
                                 ContaPoupanca cp = new ContaPoupanca(idCP, numeroDaCP);
                                 contaPController.createCRUD(cp);
@@ -201,11 +201,11 @@ public class Main {
                                     System.out.printf("index %d", i);
                                     System.out.println(" - " + lista.get(i).toString());
                                 }
-                                System.out.println("Qual o index deseja editar: ");
+                                System.out.print("Qual o index deseja editar: ");
                                 int idCPUpdate = scanner.nextInt();
-                                System.out.println("Digite o id da Conta: ");
+                                System.out.print("Digite o id da Conta: ");
                                 int idCP = scanner.nextInt();
-                                System.out.println("Digite o numero da Conta: ");
+                                System.out.print("Digite o numero da Conta: ");
                                 String numeroDaCP = scanner.next();
                                 ContaPoupanca cp = new ContaPoupanca(idCP, numeroDaCP);
                                 contaPController.updateCRUD(idCPUpdate, cp);
@@ -222,9 +222,9 @@ public class Main {
                         switch (opcaoCC) {
                             case 0 -> condicaoParadaCC = false;
                             case 1 -> {
-                                System.out.println("Digite o id da Conta: ");
+                                System.out.print("Digite o id da Conta: ");
                                 int idCC = scanner.nextInt();
-                                System.out.println("Digite o numero da Conta: ");
+                                System.out.print("Digite o numero da Conta: ");
                                 String numeroDaCC = scanner.next();
                                 ContaCorrente cc = new ContaCorrente(idCC, numeroDaCC);
                                 contaCController.createCRUD(cc);
@@ -252,11 +252,11 @@ public class Main {
                                     System.out.printf("index %d", i);
                                     System.out.println(" - " + lista.get(i).toString());
                                 }
-                                System.out.println("Qual o index deseja editar: ");
+                                System.out.print("Qual o index deseja editar: ");
                                 int idCCUpdate = scanner.nextInt();
-                                System.out.println("Digite o id da conta: ");
+                                System.out.print("Digite o id da conta: ");
                                 int idCC = scanner.nextInt();
-                                System.out.println("Digite o numero da Conta: ");
+                                System.out.print("Digite o numero da Conta: ");
                                 String numeroDaCC = scanner.next();
                                 ContaCorrente cc = new ContaCorrente(idCC, numeroDaCC);
                                 contaCController.updateCRUD(idCCUpdate, cc);
@@ -305,9 +305,9 @@ public class Main {
                                     System.out.printf("index %d", i);
                                     System.out.println(" - " + lista.get(i).toString());
                                 }
-                                System.out.println("Qual o Pix deseja editar: ");
+                                System.out.print("Qual o Pix deseja editar: ");
                                 int idPixUpdate = scanner.nextInt();
-                                System.out.println("Qual o id do pix: ");
+                                System.out.print("Qual o id do pix: ");
                                 int idPix = scanner.nextInt();
                                 System.out.print("Digite a nova Chave de destino: ");
                                 String chaveDestinoPix = scanner.next();
@@ -316,9 +316,7 @@ public class Main {
                                 Pix pix = new Pix(idPix, chaveDestinoPix, valorPix);
                                 pixController.updateCRUD(idPixUpdate, pix);
                             }
-                            default -> {
-                                System.out.println("Opcao Invalida!");
-                            }
+                            default -> System.out.println("Opcao Invalida!");
                         }
                     }
                 }
@@ -362,9 +360,9 @@ public class Main {
                                     System.out.printf("index %d", i);
                                     System.out.println(" - " + lista.get(i).toString());
                                 }
-                                System.out.println("Qual o index que deseja editar: ");
+                                System.out.print("Qual o index que deseja editar: ");
                                 int idTBUpdate = scanner.nextInt();
-                                System.out.println("Qual o id da transferencia: ");
+                                System.out.print("Qual o id da transferencia: ");
                                 int idTB = scanner.nextInt();
                                 System.out.print("Digite a nova Chave de destino: ");
                                 String chaveDestinoTB = scanner.next();
@@ -428,15 +426,11 @@ public class Main {
                                 Emprestimo emprestimo = new Emprestimo(idEmp, valorEmp, parcelas);
                                 emprestimoController.updateCRUD(idEmpUpdate, emprestimo);
                             }
-                            default -> {
-                                System.out.println("Opcao Invalida!");
-                            }
+                            default -> System.out.println("Opcao Invalida!");
                         }
                     }
                 }
-                default -> {
-                    System.out.println("Opcao Invalida!");
-                }
+                default -> System.out.println("Opcao Invalida!");
             }
         }
     }

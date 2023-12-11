@@ -16,7 +16,7 @@ public class PessoaController implements IController<Pessoa> {
     @Override
     public boolean createCRUD(Pessoa object) {
         try {
-            System.out.println("Pessoa criada com sucesso.");
+            System.out.println("Funcionario criada com sucesso.");
             return this.pessoa.createCRUD(object);
         }catch (PessoaException e){
             System.err.println(e.getMessage());
