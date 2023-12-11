@@ -44,7 +44,10 @@ public class EmprestimoController implements IController<Emprestimo> {
     @Override
     public boolean deleteCRUD(Emprestimo object) {
         try {
-            return this.emprestimos.deleteCRUD(object);
+            if(object != null){
+                System.out.println("Emprestimo deletado com sucesso.");
+                return this.emprestimos.deleteCRUD(object);
+            }
         }catch (EmprestimoException e){
             System.err.println(e.getMessage());
         }

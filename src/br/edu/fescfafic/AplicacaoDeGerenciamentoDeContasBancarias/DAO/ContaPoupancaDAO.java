@@ -39,10 +39,11 @@ public class ContaPoupancaDAO implements IDao <ContaPoupanca> {
     }
     @Override
     public void updateCRUD(int index, ContaPoupanca object) {
-        try {
+        if(contaPoupanca.size() > index){
+            System.out.println("Conta atualizada com sucesso.");
             this.contaPoupanca.set(index, object);
-        } catch (ContaPoupancaException e) {
-            throw new ContaPoupancaException("ERRO > nao foi possivel atualizar a Conta Poupanca");
+        }else{
+            throw new ContaPoupancaException("ERRO > Index nao encotrado.");
         }
     }
 }

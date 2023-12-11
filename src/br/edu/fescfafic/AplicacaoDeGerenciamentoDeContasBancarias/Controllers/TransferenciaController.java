@@ -39,8 +39,10 @@ public class TransferenciaController implements IController<TransferenciaBancari
     @Override
     public boolean deleteCRUD(TransferenciaBancaria object) {
         try {
-            System.out.println("Transferencia deletada.");
-            return this.transBanc.deleteCRUD(object);
+            if(object != null){
+                System.out.println("Transferencia deletada.");
+                return this.transBanc.deleteCRUD(object);
+            }
         }catch (TransferenciaException e){
             System.err.println(e.getMessage());
         }

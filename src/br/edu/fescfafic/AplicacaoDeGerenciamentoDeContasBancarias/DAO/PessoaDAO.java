@@ -39,10 +39,11 @@ public class PessoaDAO implements IDao<Pessoa> {
     }
     @Override
     public void updateCRUD(int index, Pessoa object) {
-        try{
+        if(pessoas.size() > index){
+            System.out.println("Funcionario atualizada com sucesso.");
             this.pessoas.set(index, object);
-        }catch (PessoaException e){
-            throw new PessoaException("ERRO > Nao foi possivel atualizar a Pessoa.");
+        } else{
+            throw new PessoaException("ERRO > Index nao encotrado.");
         }
     }
 }

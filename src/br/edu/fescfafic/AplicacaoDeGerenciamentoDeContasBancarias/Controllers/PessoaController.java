@@ -44,8 +44,10 @@ public class PessoaController implements IController<Pessoa> {
     @Override
     public boolean deleteCRUD(Pessoa object) {
         try {
-            System.out.println("Pessoa deletada com sucesso.");
-            return this.pessoa.deleteCRUD(object);
+            if(object != null){
+                System.out.println("Funcionario deletada com sucesso.");
+                return this.pessoa.deleteCRUD(object);
+            }
         }catch (PessoaException e){
             System.err.println(e.getMessage());
         }

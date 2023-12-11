@@ -41,10 +41,11 @@ public class TransferenciaBancariaDAO implements IDao<TransferenciaBancaria> {
     }
     @Override
     public void updateCRUD(int index, TransferenciaBancaria object) {
-        try {
-            this.transBanc.set(index, object);
-        }catch (TransferenciaException e){
-            throw new TransferenciaException("ERRO > Nao foi possivel atualizar");
-        }
+       if(transBanc.size() > index){
+           System.out.println("Transferencia atualizada com sucesso.");
+           this.transBanc.set(index, object);
+       }else {
+           throw new TransferenciaException("ERRO > Index nao encotrado.");
+       }
     }
 }

@@ -40,8 +40,10 @@ public class PixController implements IController<Pix> {
     @Override
     public boolean deleteCRUD(Pix object) {
         try {
-            System.out.println("Pix deletado com sucesso.");
-            return this.dao.deleteCRUD(object);
+            if(object != null){
+                System.out.println("Pix deletado com sucesso.");
+                return this.dao.deleteCRUD(object);
+            }
         } catch (PixException e) {
             System.err.println(e.getMessage());
         }

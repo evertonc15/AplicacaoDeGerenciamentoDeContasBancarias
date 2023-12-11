@@ -39,10 +39,11 @@ public class EmprestimoDAO implements IDao<Emprestimo> {
     }
     @Override
     public void updateCRUD(int index, Emprestimo object) {
-        try{
+        if(emprestimo.size() > index){
+            System.out.println("Emprestimo atualizado com sucesso.");
             this.emprestimo.set(index, object);
-        }catch (EmprestimoException e){
-            System.err.println("ERRO > Nao foi possivel atualizar.");
+        }else{
+            throw new EmprestimoException("ERRO > Index nao encotrado.");
         }
     }
 }

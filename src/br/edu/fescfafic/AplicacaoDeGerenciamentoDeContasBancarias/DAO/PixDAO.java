@@ -40,10 +40,11 @@ public class PixDAO implements IDao<Pix> {
     }
     @Override
     public void updateCRUD(int index, Pix object) {
-        try {
+        if(lstPix.size() > index){
+            System.out.println("Pix atualizado com sucesso.");
             this.lstPix.set(index, object);
-        } catch (PixException e) {
-            throw new PixException("ERRO > Nao foi possivel atualizar o PIX");
+        }else{
+            throw new PixException("ERRO > Index nao encotrado.");
         }
     }
 }

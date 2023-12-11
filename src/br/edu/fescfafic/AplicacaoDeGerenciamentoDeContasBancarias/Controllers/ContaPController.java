@@ -39,8 +39,10 @@ public class ContaPController implements IController<ContaPoupanca> {
     @Override
     public boolean deleteCRUD(ContaPoupanca object) {
         try {
-            System.out.println("Conta Deletada com sucesso.");
-            return this.contaPoupanca.deleteCRUD(object);
+            if(object != null){
+                System.out.println("Conta Deletada com sucesso.");
+                return this.contaPoupanca.deleteCRUD(object);
+            }
         }catch (ContaPoupancaException e){
             System.err.println(e.getMessage());
         }

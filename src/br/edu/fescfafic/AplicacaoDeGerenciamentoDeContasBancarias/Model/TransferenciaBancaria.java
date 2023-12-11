@@ -23,4 +23,12 @@ public class TransferenciaBancaria implements ITransferenciaBancaria {
     public double getValor() {
         return this.valor;
     }
+    @Override
+    public String toString() {
+        return "TransferenciaBancaria{" +
+                "id=" + id +
+                ", destino='" + destino + '\'' +
+                ", valor=" + valor +
+                '}';
+    }
 }
